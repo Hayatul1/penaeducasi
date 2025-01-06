@@ -1,4 +1,3 @@
-//<![CDATA[
 $(function(a) {
     a.fn.lazyyard = function() {
         return this.each(function() {
