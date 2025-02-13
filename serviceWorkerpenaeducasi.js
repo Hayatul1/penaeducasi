@@ -6,10 +6,9 @@ var cacheName = 'cache-v4';
 //Files to save in cache
 var files = [
   './',
-  './index.html?utm=homescreen', //SW treats query string as new request
+  'https://www.penaeducasi.com/?utm=homescreen', //SW treats query string as new request
   'https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVIGxA.woff2', //caching 3rd party content
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
-  './css/styles.css',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi.png',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi%20%20Tulisan%20Putih.png',
   'https://www.penaeducasi.com/favicon.ico',
@@ -32,7 +31,7 @@ self.addEventListener('install', (event) => {
       return cache.addAll(files)
       .then(() => {
         console.info('All files are cached');
-        return self.skipWaiting(); //To forces the waiting service worker to become the active service worker
+        return self.skipWaiting(); //To forces the waiting service worker penaeducasi to become the active service worker
       })
       .catch((error) =>  {
         console.error('Failed to cache', error);
@@ -95,7 +94,7 @@ self.addEventListener('activate', (event) => {
   console.info('Event: Activate');
 
   //Navigation preload is help us make parallel request while service worker is booting up.
-  //Enable - chrome://flags/#enable-service-worker-navigation-preload
+  //Enable - chrome://flags/#enable-service-worker-penaeducasi-navigation-preload
   //Support - Chrome 57 beta (behing the flag)
   //More info - https://developers.google.com/web/updates/2017/02/navigation-preload#the-problem
 
@@ -139,8 +138,8 @@ self.addEventListener('push', (event) => {
   var body = {
     'body': 'click to return to application',
     'tag': 'demo',
-    'icon': './images/icons/apple-touch-icon.png',
-    'badge': './images/icons/apple-touch-icon.png',
+    'icon': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikkR6hIRUUOlsfOsS6zeWTrpAJl7vJlyuNTu4QI_O4_ROVCSD-6RWO9yLYaT0ceCrZ7Zn72Pvrdvg17GcuNvc8ersFiWK1GcNNBR6z-pbiYXCnYqO3NrDbxymKVDTtDQLg4ZuQQ57jBs_x2z2b6eax5__PfhtbHWCPvWYXYQE3pvaxV5Syc2QbcsVc78Pd/s96/penaeducasi-icon.png',
+    'badge': 'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi.png',
     //Custom actions buttons
     'actions': [
       { 'action': 'yes', 'title': 'I ♥ this app!'},
