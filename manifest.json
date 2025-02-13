@@ -1,13 +1,7 @@
 {
-	"name": "PENA EDUKASI",
-	"short_name": "penaeducasi",
-	"description": "PENA EDUKASI - Chanel edukasi yang menyediakan berbagai informasi dan ilmu pengetahuan yang terpercaya dan memperioritaskan keamanan bagi pengguna",
-	"start_url": "https://www.penaeducasi.com/?utm=homescreen",
-	"indexs_url": "https://www.penaeducasi.com/search",
-	"display": "standalone",
-	"background_color": "#ffffff",
-	"theme_color": "#f8f8f8f8",
-	"icons": [
+  "name": "PENA EDUKASI",
+  "short_name": "penaeducasi",
+  "icons": [
 		{
 			"src": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikkR6hIRUUOlsfOsS6zeWTrpAJl7vJlyuNTu4QI_O4_ROVCSD-6RWO9yLYaT0ceCrZ7Zn72Pvrdvg17GcuNvc8ersFiWK1GcNNBR6z-pbiYXCnYqO3NrDbxymKVDTtDQLg4ZuQQ57jBs_x2z2b6eax5__PfhtbHWCPvWYXYQE3pvaxV5Syc2QbcsVc78Pd/s96/penaeducasi-icon.png",
 			"type": "image/png",
@@ -19,8 +13,9 @@
 			"sizes": "512x512"
 		},
 	],
-		"website": "https://www.penaeducasi.com",
-		"github": "https://github.com/Hayatul1/",
-		"source-repo": "https://github.com/Hayatul1/penaeducasi"
+  "theme_color": "#1976d2",
+  "background_color": "#FFF",
+  "display": "standalone",
+  "start_url": "https://mastamvan.blogspot.com"
 		
 }
