@@ -1,13 +1,9 @@
-//Cache polyfil to support cacheAPI in all browsers
-importScripts('./cache-polyfill.js');
+// Modern browsers don't need polyfill, remove importScripts
+const CACHE_NAME = 'pena-cache-v4';
 
-var cacheName = 'cache-v4';
-
-//Files to save in cache
-var files = [
-  './',
-  'https://www.penaeducasi.com/?utm=homescreen', //SW treats query string as new request
-  'https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVIGxA.woff2', //caching 3rd party content
+const ASSETS = [
+  'https://www.penaeducasi.com/?utm=homescreen',
+  'https://fonts.gstatic.com/s/opensans/v40/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVIGxA.woff2',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi.png',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi%20%20Tulisan%20Putih.png',
