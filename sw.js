@@ -8,10 +8,7 @@ const ASSETS = [
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi.png',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi%20%20Tulisan%20Putih.png',
   'https://www.penaeducasi.com/favicon.ico',
-  'https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js',
-  'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/main%20scrypt%20penaeducasi.js',
-  'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/a.fn.lazyyard.js',
   'https://www.blogger.com/static/v1/widgets/60983134-widgets.js',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/manifest.json'
 ];
