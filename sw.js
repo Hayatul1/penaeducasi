@@ -1,5 +1,5 @@
 // Modern browsers don't need polyfill, remove importScripts
-const CACHE_NAME = 'pena-cache-v4';
+const CACHE_NAME = 'sw.js';
 
 const ASSETS = [
   'https://www.penaeducasi.com/?utm=homescreen',
