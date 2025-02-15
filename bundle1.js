@@ -1,66 +1,37 @@
-importScripts('js/cache-polyfill.js');
-
-var CACHE_VERSION = 'app-v18';
-var CACHE_FILES = [
-    '/',
-    'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/index.html',
-    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js',
-    'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/main%20scrypt%20penaeducasi.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
-    'css/style.css',
-    'https://www.penaeducasi.com/favicon.ico',
-    'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/manifest1.json',
-    'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi.png',
-    'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/logo%20pena%20edukasi%20%20Tulisan%20Putih.png'
-];
-
-self.addEventListener('install', function (event) {
-    event.waitUntil(
-        caches.open(CACHE_VERSION)
-            .then(function (cache) {
-                console.log('Opened cache');
-                return cache.addAll(CACHE_FILES);
-            })
-    );
-});
-
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request).then(function(res){
-            if(res){
-                return res;
-            }
-            requestBackend(event);
-        })
-    )
-});
-
-function requestBackend(event){
-    var url = event.request.clone();
-    return fetch(url).then(function(res){
-        //if not a valid response send the error
-        if(!res || res.status !== 200 || res.type !== 'basic'){
-            return res;
-        }
-
-        var response = res.clone();
-
-        caches.open(CACHE_VERSION).then(function(cache){
-            cache.put(event.request, response);
-        });
-
-        return res;
-    })
-}
-
-self.addEventListener('activate', function (event) {
-    event.waitUntil(
-        caches.keys().then(function(keys){
-            return Promise.all(keys.map(function(key, i){
-                if(key !== CACHE_VERSION){
-                    return caches.delete(keys[i]);
-                }
-            }))
-        })
-    )
-});
+window['__wavt'] = 'AOuZoY4tqqoAEADSmXtyKuueM325P07Z5A:1739605984588';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d415912717773665523','//www.penaeducasi.com/','415912717773665523');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '415912717773665523', 'title': 'PENA EDUKASI', 'url': 'https://www.penaeducasi.com/', 'canonicalUrl': 'https://www.penaeducasi.com/', 'homepageUrl': 'https://www.penaeducasi.com/', 'searchUrl': 'https://www.penaeducasi.com/search', 'canonicalHomepageUrl': 'https://www.penaeducasi.com/', 'blogspotFaviconUrl': 'https://www.penaeducasi.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': true, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': 'G-8EVFJE6K4E', 'analytics4': true, 'encoding': 'UTF-8', 'locale': 'id', 'localeUnderscoreDelimited': 'id', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22PENA EDUKASI - Atom\x22 href\x3d\x22https://www.penaeducasi.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22PENA EDUKASI - RSS\x22 href\x3d\x22https://www.penaeducasi.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22PENA EDUKASI - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/415912717773665523/posts/default\x22 /\x3e\n', 'meTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/32c3d108bdd93523', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': 'Dapatkan link', 'key': 'link', 'shareMessage': 'Dapatkan link', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Bagikan ke Facebook', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'X', 'key': 'twitter', 'shareMessage': 'Bagikan ke X', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Bagikan ke Pinterest', 'target': 'pinterest'}, {'name': 'Email', 'key': 'email', 'shareMessage': 'Email', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27id\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': true, 'jumpLinkMessage': 'Read more \xbb', 'pageType': 'index', 'pageName': '', 'pageTitle': 'PENA EDUKASI', 'metaDescription': 'PENA EDUKASI - Chanel edukasi yang menyediakan berbagai informasi dan ilmu pengetahuan yang terpercaya dan memperioritaskan keamanan bagi pengguna'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': 'Edit', 'linkCopiedToClipboard': 'Tautan disalin ke papan klip!', 'ok': 'Oke', 'postLink': 'Tautan Pos'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': 'Khusus', 'isResponsive': true, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'PENA EDUKASI', 'description': 'PENA EDUKASI - Chanel edukasi yang menyediakan berbagai informasi dan ilmu pengetahuan yang terpercaya dan memperioritaskan keamanan bagi pengguna', 'url': 'https://www.penaeducasi.com/', 'type': 'feed', 'isSingleItem': false, 'isMultipleItems': true, 'isError': false, 'isPage': false, 'isPost': false, 'isHomepage': true, 'isArchive': false, 'isLabelSearch': false}}, {'name': 'widgets', 'data': [{'title': 'Css Options', 'type': 'LinkList', 'sectionId': 'sora-panel', 'id': 'LinkList70'}, {'title': 'Default Variables', 'type': 'LinkList', 'sectionId': 'sora-panel', 'id': 'LinkList71'}, {'title': 'Link List', 'type': 'LinkList', 'sectionId': 'top-bar-nav', 'id': 'LinkList72'}, {'title': 'Top Social Widget', 'type': 'LinkList', 'sectionId': 'top-bar-social', 'id': 'LinkList73'}, {'title': 'Breaking News', 'type': 'HTML', 'sectionId': 'break-section', 'id': 'HTML200'}, {'title': 'PENA EDUKASI (Header)', 'type': 'Header', 'sectionId': 'header-logo', 'id': 'Header1'}, {'title': 'Header Ads Widget', 'type': 'HTML', 'sectionId': 'header-ads', 'id': 'HTML1'}, {'title': 'Mobile Logo Settings', 'type': 'Image', 'sectionId': 'mobile-logo', 'id': 'Image70'}, {'title': 'Link List', 'type': 'LinkList', 'sectionId': 'main-menu', 'id': 'LinkList74'}, {'title': '', 'type': 'HTML', 'sectionId': 'hot-section', 'id': 'HTML2'}, {'title': 'Ad Code', 'type': 'HTML', 'sectionId': 'home-ad-top1', 'id': 'HTML21'}, {'title': 'Carousel Widget', 'type': 'HTML', 'sectionId': 'carousel-section', 'id': 'HTML25'}, {'title': 'Pendidikan', 'type': 'HTML', 'sectionId': 'featured-posts-2', 'id': 'HTML5'}, {'title': 'Destinasi', 'type': 'HTML', 'sectionId': 'featured-posts-2', 'id': 'HTML71'}, {'title': 'Ibadah', 'type': 'HTML', 'sectionId': 'featured-posts-2', 'id': 'HTML13'}, {'title': 'Buku', 'type': 'HTML', 'sectionId': 'featured-posts-2', 'id': 'HTML8'}, {'title': 'Perangkat Ajar', 'type': 'HTML', 'sectionId': 'featured-posts-2', 'id': 'HTML9'}, {'title': 'Teknologi', 'type': 'HTML', 'sectionId': 'featured-posts-2', 'id': 'HTML15'}, {'type': 'Attribution', 'sectionId': 'featured-posts-2', 'id': 'Attribution1'}, {'title': '', 'type': 'ReportAbuse', 'sectionId': 'featured-posts-2', 'id': 'ReportAbuse1'}, {'title': 'Search This Blog', 'type': 'BlogSearch', 'sectionId': 'featured-posts-2', 'id': 'BlogSearch1'}, {'title': '', 'type': 'BlogArchive', 'sectionId': 'featured-posts-2', 'id': 'BlogArchive1'}, {'title': 'Postingan Blog', 'type': 'Blog', 'sectionId': 'main', 'id': 'Blog1', 'posts': [{'id': '5467477736157740019', 'title': 'Nishfu Sya\x27ban: Malam Penuh Rahmat dan Ampunan Ilahi', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZuIX2S_ujyKLkXdm5fmraZlGBvykceYylnoZg5v1sKY7iID7KECMX8hc2IP_gmkmtmBMRKpmnLDJvb9QDsLhMS-3pT6zv7RkdVBRFOdltZrnEyZDBKg_d-bdqF0WCK8FbjpeQDq4XIrRCgHrHyTtwWgpbbW8QTZPYyuWBFp7m6joa1vK-i9fzygh0SY9n/s640/malam-nishfu-syaban.jpg', 'showInlineAds': false}, {'id': '7117500817375877196', 'title': 'Alunan Cinta Nabi dari Balikterus: Grup Al Banjari Al Hozaimah Tetap Memukau Setelah 2 Tahun', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjN2EyOaxsh_8Ywfr37vLQ7YUUryqukzXQvR8jBQnX6wmKC2LXQRdeXZZxDafUp0x3K2VedHVOwGgDkpKrGeMPR6Ww-aFc2Hft2DOKzc07D0P06N2zHkmMT2SoTW5thcjocCVc77bhDr8BOVkL5YJynjRpaO5FJ7thHi0JbzfII3rqMxfQWKWktxD5D_4tx/s16000/Groub%20Albanjari%20Alhozaimah.jpg', 'showInlineAds': false}, {'id': '301831347415158245', 'title': 'Geger! Rusa Bawean Masuk Kampung: Ancaman dan Harapan bagi Satwa Endemik', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigieniHo5A04bEOuGzb9HXxfdzJZ87hAR5kviB3SF2n_Yc6aIZZNAH5JqsZTfwEQ2KpnAPSi5TN9esHNRJOLbYkWedlB61CngXdShyphenhyphen8saEFCXXF03eQi3ZChHfyF33KCm3M8ewQUgsn8JLElyledmvVp2LO21eOg5r_4YJWMgHkEaDSHfA-2iuB4_RqcVa/s1200/Rusa%20Bawean%20Endemik.jpg', 'showInlineAds': false}, {'id': '1812386081978297785', 'title': 'Telur Ceplok Masak Santan: Kelezatan Gurih dan Pedas yang Menggugah Selera', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh456s7i_2ZnRkTRJUrlCc4hnCyefMV3UVZd2_XB6BH-nY51bp4gNSmHyu_I7OrP2KAr2lTdbMXIX-p0VM2BMYGxl1fVCCMNaTXru0QD6pJGTCRr7h_P4PwWUN3JQzWLMVZgZufpdId5SD34C-aZlZtAz-iiGWfzRUkGM9m3mlQx84Y8c0/s640/telur%20ceplok%20masak%20santan.png', 'showInlineAds': false}, {'id': '333139084331730479', 'title': 'Mengapa Isra\x27 Mi\x27raj Terjadi?', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD3pxIeCq9ruLivmoSA0rNtKoz2XlLBmlTC0NYnyLlD6kADyjddOxwR-x5an9WV-4BLAcgglpyMMYvbqwTHrk7W6g984_ZR-Dw-7HQP0WR2KR6GdqaaQ8u8EWYgD-_vNvdpxX7PgcqoKtmvJsbzecvoQu0eYboGrJqPzg1SEhALx5kF-x1HcYF51QxhDWS/s640/Isra%27%20Mi%27raj.jpg', 'showInlineAds': false}, {'id': '1330385599493592749', 'title': 'MINU 10 KEPONGAN', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOtIgYRsHShyKbHA3ySIBYshbrd6Ne5qCX6z74r-tyK3bRUy9YpjLESx6uIuC08hGBbAsgqWlNkohTk_KUN4D9yCq7eZ-FU87rN1Nx0dtT7iqf5F0MdjBF-gpxzcXg0Xi_KoKyR0qXUA5BV7-_P65ifcVCTI1IXTK4dBUSRP8x8KYxfE7XKRhhD3TkEBAC/s0/minu%2010%20kepongan.jpg', 'showInlineAds': false}, {'id': '383364702687213641', 'title': 'WHO Rekomendasikan Penerapan Sekolah Sehat untuk Atasi Masalah Kesehatan Remaja', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjTD6ouQS6OGG7RoHq5It2tfzSaekG473FNNB556lC4MHPN2MrIJcmgtvwXxtE0ZqoXkFsIsyx4A7UW2-_4o7sxEhfcYjHvSQXW6DVntwxSyOVwkfjgS9an-XNH_43CoKaHxXZ7P8pmnuLvo0rLOrJ2SNFkQQU6UuAOZo5WMLs-HvVo-k24GwdN6NrZaVGp/s0/Kesehatan%20siswa_ok.jpg', 'showInlineAds': false}, {'id': '7299925783680686337', 'title': 'Ayam Goreng Spicy Crispy: Resep Rahasia yang Menggugah Selera!', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8thyphenhyphenhkrQp1nAcH0LUYP-5JBzye1d-KNvP1-YugLV7PCxfuCKraqiU0RxlBKdQN2LxQRTsm906QhulAJOaiTo8WUXq9Ec2Tkh3MBTcdA4Fx-8zVSBeJOedMG5Ok0gt1yUmwRpfJZ4fj_YZ_ZqD4Jsi4GIMyU160LI5TJ1Ya-iR1zjvAwpLt656xD-lEYtO/s0/ayam%20crispy_ok.jpg', 'showInlineAds': false}, {'id': '5524205192014082286', 'title': 'Cara Mengatasi Panggilan Telepon Hp Android yang Disadap', 'featuredImage': 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEinedwslqt_zJracbg7WcL_oWbPR2Kd5nSPE3L2Zt7Ihgxo-WBwTooQnBxxTvslVn9uRSAfZaEsUZuKLI-DD1zwJ6uyWF3_-yzQUuNFb6AUEtY33BiDgIBD9gDRfZ5SGWTNhI8G447C5D3-6QM2aQ4pdo4Whe4i4876FQTiPJJ51vT6NnF9LmmMa-I7DfRe/s0/Panggilan%20disadap_ok.jpg', 'showInlineAds': false}], 'headerByline': {'regionName': 'header1', 'items': [{'name': 'share', 'label': ''}, {'name': 'author', 'label': 'Posted by:'}, {'name': 'timestamp', 'label': ''}]}, 'footerBylines': [{'regionName': 'footer1', 'items': [{'name': 'comments', 'label': 'Comments'}, {'name': 'icons', 'label': ''}]}, {'regionName': 'footer2', 'items': [{'name': 'labels', 'label': 'Tags:'}]}], 'allBylineItems': [{'name': 'share', 'label': ''}, {'name': 'author', 'label': 'Posted by:'}, {'name': 'timestamp', 'label': ''}, {'name': 'comments', 'label': 'Comments'}, {'name': 'icons', 'label': ''}, {'name': 'labels', 'label': 'Tags:'}]}, {'title': 'Resep Kue', 'type': 'HTML', 'sectionId': 'featured-posts-3', 'id': 'HTML6'}, {'title': 'Resep Masakan', 'type': 'HTML', 'sectionId': 'featured-posts-3', 'id': 'HTML10'}, {'title': 'Sejarah', 'type': 'HTML', 'sectionId': 'featured-posts-3', 'id': 'HTML12'}, {'title': 'Social Plugin', 'type': 'LinkList', 'sectionId': 'social-widget', 'id': 'LinkList75'}, {'title': 'Labels', 'type': 'Label', 'sectionId': 'sidebar2', 'id': 'Label1'}, {'title': 'Sekolah', 'type': 'HTML', 'sectionId': 'featured-posts-1', 'id': 'HTML11'}, {'title': 'About Us', 'type': 'Image', 'sectionId': 'footer-about-area', 'id': 'Image150'}, {'title': 'Footer Social Widget', 'type': 'LinkList', 'sectionId': 'foot-bar-social', 'id': 'LinkList78'}, {'title': 'Random Posts', 'type': 'HTML', 'sectionId': 'footer-sec1', 'id': 'HTML3'}, {'title': 'Recent in Posts', 'type': 'HTML', 'sectionId': 'footer-sec2', 'id': 'HTML4'}, {'title': 'Popular Posts', 'type': 'PopularPosts', 'sectionId': 'footer-sec3', 'id': 'PopularPosts2', 'posts': [{'title': 'Mengapa Isra\x27 Mi\x27raj Terjadi?', 'id': 333139084331730479}, {'title': 'Telur Ceplok Masak Santan: Kelezatan Gurih dan Pedas yang Menggugah Selera', 'id': 1812386081978297785}, {'title': 'Kemenag Buka Lowongan PPPK untuk Guru, Dosen, dan Tenaga Teknis, Anggaran 2023 Buruan Daftar!', 'id': 2376334610076342153}]}, {'title': 'Menu Footer Widget', 'type': 'LinkList', 'sectionId': 'menu-footer', 'id': 'LinkList76'}]}]);
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList70', 'sora-panel', document.getElementById('LinkList70'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList71', 'sora-panel', document.getElementById('LinkList71'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList72', 'top-bar-nav', document.getElementById('LinkList72'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList73', 'top-bar-social', document.getElementById('LinkList73'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML200', 'break-section', document.getElementById('HTML200'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', 'header-logo', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML1', 'header-ads', document.getElementById('HTML1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ImageView', new _WidgetInfo('Image70', 'mobile-logo', document.getElementById('Image70'), {'resize': true}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList74', 'main-menu', document.getElementById('LinkList74'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML2', 'hot-section', document.getElementById('HTML2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML21', 'home-ad-top1', document.getElementById('HTML21'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML25', 'carousel-section', document.getElementById('HTML25'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML5', 'featured-posts-2', document.getElementById('HTML5'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML71', 'featured-posts-2', document.getElementById('HTML71'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML13', 'featured-posts-2', document.getElementById('HTML13'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML8', 'featured-posts-2', document.getElementById('HTML8'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML9', 'featured-posts-2', document.getElementById('HTML9'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML15', 'featured-posts-2', document.getElementById('HTML15'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', 'featured-posts-2', document.getElementById('Attribution1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ReportAbuseView', new _WidgetInfo('ReportAbuse1', 'featured-posts-2', document.getElementById('ReportAbuse1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogSearchView', new _WidgetInfo('BlogSearch1', 'featured-posts-2', document.getElementById('BlogSearch1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'featured-posts-2', document.getElementById('BlogArchive1'), {'languageDirection': 'ltr', 'loadingMessage': 'Memuat\x26hellip;'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/918196653-lbx.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/1964470060-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML6', 'featured-posts-3', document.getElementById('HTML6'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML10', 'featured-posts-3', document.getElementById('HTML10'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML12', 'featured-posts-3', document.getElementById('HTML12'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList75', 'social-widget', document.getElementById('LinkList75'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LabelView', new _WidgetInfo('Label1', 'sidebar2', document.getElementById('Label1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML11', 'featured-posts-1', document.getElementById('HTML11'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_ImageView', new _WidgetInfo('Image150', 'footer-about-area', document.getElementById('Image150'), {'resize': true}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList78', 'foot-bar-social', document.getElementById('LinkList78'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML3', 'footer-sec1', document.getElementById('HTML3'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HTMLView', new _WidgetInfo('HTML4', 'footer-sec2', document.getElementById('HTML4'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PopularPostsView', new _WidgetInfo('PopularPosts2', 'footer-sec3', document.getElementById('PopularPosts2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList76', 'menu-footer', document.getElementById('LinkList76'), {}, 'displayModeFull'));
