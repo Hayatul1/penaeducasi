@@ -1,6 +1,7 @@
 const CACHE = 'pena-v1';
 const URLS = [
   '/',
+  'https://www.penaeducasi.com/',
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
   'https://cdn.jsdelivr.net/gh/Hayatul1/penaeducasi/main%20scrypt%20penaeducasi.js'
 ];
