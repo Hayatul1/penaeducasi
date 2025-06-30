@@ -1,4 +1,3 @@
-
 function loadPenaeducasiRelatedPosts() {
   const container = document.getElementById("penaeducasiMultiRelated");
   if (!container) return;
