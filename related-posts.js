@@ -1,37 +1,52 @@
-function loadPenaeducasiRelatedPosts() {
-  const container = document.getElementById("penaeducasiMultiRelated");
-  if (!container) return;
+(function(){
+  function loadPenaeducasiRelatedPosts() {
+    const paragraphs = document.querySelectorAll('.post-body p');
+    const labels = [...document.querySelectorAll('a[rel="tag"]')].map(el => el.textContent.trim());
+    if (!labels.length || !paragraphs.length) return;
 
-  const labels = [...document.querySelectorAll('a[rel="tag"]')].map(el => el.textContent.trim());
-  if (labels.length === 0) return;
+    const label = encodeURIComponent(labels[0]);
+    const feedUrl = `/feeds/posts/default/-/${label}?alt=json&max-results=6`;
 
-  const label = encodeURIComponent(labels[0]);
-  const feedUrl = `/feeds/posts/default/-/${label}?alt=json&max-results=6`;
+    fetch(feedUrl)
+      .then(res => res.json())
+      .then(data => {
+        const entries = data.feed.entry || [];
+        const currentUrl = location.href;
+        const relatedLinks = [];
 
-  fetch(feedUrl)
-    .then(res => res.json())
-    .then(data => {
-      const entries = data.feed.entry || [];
-      let html = `<div class="penaeducasiMultiRelated"><div class="content"><span style="border-left: 3px solid #34C759; padding-left: 5px; margin-right: 5px;"></span> <span style="background: linear-gradient(to right, #03A9F4, #8BC34A); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 14px; font-weight: bold;">BACA JUGA:</span><ul>`;
-
-      let currentUrl = window.location.href;
-      let count = 0;
-
-      for (let entry of entries) {
-        const title = entry.title?.$t || "Tanpa Judul";
-        const link = (entry.link || []).find(l => l.rel === "alternate")?.href;
-
-        if (link && link !== currentUrl && count < 4) {
-          html += `<li><a href="${link}" title="${title}">${title}</a></li>`;
-          count++;
+        for (let entry of entries) {
+          const title = entry.title?.$t || "Tanpa Judul";
+          const link = (entry.link || []).find(l => l.rel === "alternate")?.href;
+          if (link && link !== currentUrl && !relatedLinks.some(p => p.link === link)) {
+            relatedLinks.push({ title, link });
+          }
+          if (relatedLinks.length >= 5) break;
         }
-      }
 
-      html += `</ul></div><div class="icon"></div></div>`;
-      container.innerHTML = html;
-    })
-    .catch(err => console.error("Gagal memuat related posts:", err));
-}
+        for (let i = 1; i < paragraphs.length; i += 2) {
+          const box = document.createElement('div');
+          box.className = 'penaeducasiMultiRelated';
+          box.innerHTML = `
+            <div class="judulRelated">BACA JUGA</div>
+            <ul class="listRelated">
+              ${relatedLinks.map(post => `<li><a href="${post.link}" title="${post.title}">${post.title}</a></li>`).join('')}
+            </ul>
+          `;
+          paragraphs[i].after(box);
+        }
+      })
+      .catch(err => console.error("Gagal load related post:", err));
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      loadPenaeducasiRelatedPosts();
+      observer.disconnect();
+    }
+  });
+  const target = document.querySelector('.post-body');
+  if (target) observer.observe(target);
+})();
 
 // Lazy load with IntersectionObserver
 const observer = new IntersectionObserver(entries => {
