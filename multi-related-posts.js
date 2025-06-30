@@ -21,7 +21,7 @@
           if (link && link !== currentUrl && !relatedLinks.some(p => p.link === link)) {
             relatedLinks.push({ title, link, media });
           }
-          if (relatedLinks.length >= 4) break;
+          if (relatedLinks.length >= 3) break;
         }
 
         // Sisipkan setelah paragraf ke-2, ke-5, ke-8, ke-11
