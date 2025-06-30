@@ -5,7 +5,7 @@
     if (!labels.length || !paragraphs.length) return;
 
     const label = encodeURIComponent(labels[0]);
-    const feedUrl = `/feeds/posts/default/-/${label}?alt=json&max-results=6`;
+    const feedUrl = `/feeds/posts/default/-/${label}?alt=json&max-results=4`;
 
     fetch(feedUrl)
       .then(res => res.json())
@@ -20,7 +20,7 @@
           if (link && link !== currentUrl && !relatedLinks.some(p => p.link === link)) {
             relatedLinks.push({ title, link });
           }
-          if (relatedLinks.length >= 5) break;
+          if (relatedLinks.length >= 1) break;
         }
 
         for (let i = 1; i < paragraphs.length; i += 2) {
