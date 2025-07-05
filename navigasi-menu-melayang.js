@@ -29,4 +29,7 @@ function onScroll() {
 
 var $$html = document.querySelector('.sticky');
 
-window.addEventListener('scroll', throttle(onScroll,25));
+window.addEventListener(&#39;scroll&#39;,()=&gt;{
+  const nav=document.querySelector(&#39;.sticky&#39;);
+  nav.classList.toggle(&#39;is-active&#39;,window.scrollY&gt;100);
+});
