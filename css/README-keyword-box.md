@@ -27,12 +27,12 @@ Ganti `USERNAME` dan `REPO` dengan nama akun dan repositori GitHub kamu.
 
 ```html
 <div class="keyword-container">
-  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">blogger widget</a>
-  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">OG Image Blogger</a>
-  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">Gambar Blogger</a>
-  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">SEO Blogger</a>
-  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">Thumbnail Postingan</a>
-  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">Edit Template Blogger</a>
+  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">kata kunci anda</a>
+  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">kata kunci anda</a>
+  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">kata kunci anda</a>
+  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">kata kunci anda</a>
+  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">kata kunci anda</a>
+  <a class="keyword-box" href="URL-artikel-anda" rel="dofollow">kata kunci anda</a>
 </div>
 ```
 
@@ -41,6 +41,7 @@ Ganti `USERNAME` dan `REPO` dengan nama akun dan repositori GitHub kamu.
 ## 📌 Catatan
 - File ini bebas digunakan dan dimodifikasi.
 - Gunakan kata kunci yang relevan untuk memperkuat internal linking dan SEO.
+- Link html diatas edit dulu sebelum digunakan linknya dirubah ke link artikel post nya masing masing, dan kata kuncinya juga dirubah
 
 ---
 
