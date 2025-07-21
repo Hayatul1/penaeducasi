@@ -1,22 +1,13 @@
-
 (function () {
   try {
-    var bingEndpoint = "https://www.bing.com/indexnow";
-    var key = "a1527aefef5c4d62bec596081250ff9c";
-    var currentURL = location.href;
+    var pingUrl = "https://www.bing.com/indexnow?url=" + encodeURIComponent(location.href) + "&key=a1527aefef5c4d62bec596081250ff9c";
 
-    var pingURL = bingEndpoint + "?url=" + encodeURIComponent(currentURL) + "&key=" + key;
-
-    fetch(pingURL)
-      .then(function (response) {
-        if (!response.ok) {
-          console.warn("IndexNow ping failed:", response.status);
-        } else {
-          console.log("IndexNow ping success:", response.status);
-        }
+    fetch(pingUrl, { mode: "no-cors" })
+      .then(function () {
+        console.log("IndexNow ping sent (no-cors)");
       })
       .catch(function (error) {
-        console.error("IndexNow request error:", error);
+        console.warn("Ping error:", error);
       });
   } catch (e) {
     console.error("IndexNow script error:", e);
