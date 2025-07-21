@@ -1,13 +1,19 @@
 (function () {
   try {
-    var pingUrl = "https://www.bing.com/indexnow?url=" + encodeURIComponent(location.href) + "&key=a1527aefef5c4d62bec596081250ff9c";
+    var url = "https://www.bing.com/indexnow";
+    var key = "a1527aefef5c4d62bec596081250ff9c";
+    var target = window.location.href;
 
+    var pingUrl = url + "?url=" + encodeURIComponent(target) + "&key=" + key;
+
+    // Mengirim ping tanpa mengganggu user, dan menangani error dengan tenang
     fetch(pingUrl, { mode: "no-cors" })
       .then(function () {
-        console.log("IndexNow ping sent (no-cors)");
+        console.log("IndexNow ping sent silently");
       })
       .catch(function (error) {
-        console.warn("Ping error:", error);
+        // Error ini tidak akan muncul karena mode no-cors, tapi log disediakan jika perlu debug
+        console.warn("IndexNow ping failed silently:", error);
       });
   } catch (e) {
     console.error("IndexNow script error:", e);
