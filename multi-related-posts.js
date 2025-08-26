@@ -36,7 +36,7 @@
             box.innerHTML = `
               <a class="relatedItemThumb" href="${post.link}" title="${post.title}">
                 <img src="${post.media}" alt="${post.title}" loading="lazy"/>
-                <div><strong>BACA JUGA:</strong> ${post.title}</div>
+                <div><strong>ARTIKEL TERKAIT:</strong> ${post.title}</div>
               </a>
             `;
             paragraphs[pos].after(box);
