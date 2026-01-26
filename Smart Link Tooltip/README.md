@@ -60,4 +60,4 @@ Fitur ini dikembangkan berdasarkan tutorial komprehensif dari **Pena Educasi**:
 Dikembangkan berdasarkan tutorial dari **[Pena Edukasi](https://www.penaeducasi.com)**.
 
 ## 📄 **License**
-MIT © [Nama Anda]
+MIT © [Hayatul1]
